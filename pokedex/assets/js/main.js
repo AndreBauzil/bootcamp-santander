@@ -1,24 +1,31 @@
+const pokemonList = document.getElementById('pokemonList');
+const loadMoreButton = document.getElementById('loadMoreButton')
+const limit = 5;
+let offset = 0;
 
-function pokemonToLI(pokemon) {
-    return `
-        <li class="pokemon">
-            <span class="number">#001</span>
-            <span class="name">${pokemon.name}</span>
-            
-            <div class="detail">
-                <ol class="types">
-                    <li class="type">grass</li>
-                    <li class="type">poison</li>
-                </ol>
-            
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="${pokemon.name}">
-            </div>
-        </li>
-    `
+function loadPokemonItens(offset, limit) {
+    pokeAPI.getPokemons(offset, limit).then((pokemons = []) => 
+        pokemonList.innerHTML += pokemons.map((pokemon) => `
+            <li class="pokemon ${pokemon.type}">
+                <span class="number">#${pokemon.number}</span>
+                <span class="name">${pokemon.name}</span>
+                
+                <div class="detail">
+                    <ol class="types">
+                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                    </ol>
+                
+                    <img src="${pokemon.photo}" 
+                        alt="${pokemon.name}">
+                </div>
+            </li>
+        `).join('')
+    )
 }
 
-const pokemonList = document.getElementById('pokemonList');
+loadPokemonItens(offset, limit)
 
-pokeAPI.getPokemons().then((pokemons = []) => {
-    pokemonList.innerHTML += pokemons.map(pokemonToLI).join('')
+loadMoreButton.addEventListener('click', () => {
+    offset += limit
+    loadPokemonItens(offset, limit)
 })
