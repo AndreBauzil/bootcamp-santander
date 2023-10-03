@@ -63,9 +63,9 @@
 
 
 /* Responsividade */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 380px) {
     .pokemons {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -73,10 +73,11 @@
     .pokemons {
         grid-template-columns: repeat(3, 1fr);
     }
+
 }
 
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 992px) {
     .pokemons {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
