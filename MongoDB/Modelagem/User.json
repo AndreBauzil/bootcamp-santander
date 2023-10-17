@@ -1,0 +1,56 @@
+{
+    "_id":1,
+    "nome": "Andre Bauzil",
+    "idade": 30,
+    "data_nascimento": "2003-07-20",
+    "endereco": "Av. Vinte Quatro de Maio",
+    "enderecos": [{
+        "logradouro": "Avenida",
+        "numero": 44,
+        "bairro": "divisa",
+        "cidade": "Santana do Livramento"
+    }],
+
+    "interesses": [
+        "Fórmula 1", 
+        "F1"
+    ],
+    "reservas": [
+        1,2
+    ] 
+}
+
+// Desnormalizada (inner document)
+{
+    "_id":1,
+    "nome": "Andre Bauzil",
+    "idade": 30,
+    "data_nascimento": "2003-07-20",
+    "endereco": "Av. Vinte Quatro de Maio",
+    "enderecos": [{
+        "logradouro": "Avenida",
+        "numero": 44,
+        "bairro": "divisa",
+        "cidade": "Santana do Livramento"
+    }],
+
+    "interesses": [
+        "Fórmula 1", 
+        "F1"
+    ],
+    "reservas": [{
+        "data": "2023-10-17",
+        "status": "pendente",
+        "destino": [
+            ObjectId("123"), ObjectId("456")
+        ]
+    }]
+}
+
+{
+    "_id": ObjectId("123"),
+    "destino": ObjectId("456"),
+    "data": "2023-10-17",
+    "status": "pendente",
+    "usuario": ObjectId("1")
+}
