@@ -1,0 +1,12 @@
+{
+    "_id": 1,
+    "nome": "Parque Internacional",
+    "descicao": "Principal parque da fronteira",
+    "localizacao": {
+        "type": "Point",
+        "coordinates": [
+            -30.8897, 
+            -55.5323
+        ]
+    }
+}
