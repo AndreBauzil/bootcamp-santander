@@ -4,12 +4,12 @@
 const prompt = require('prompt-sync')();
 
 // Entrada da quantidade de ativos
-const quantidadeAtivos = parseInt(prompt());
+const quantidadeAtivos = parseInt(prompt("Digite a quantidade de ativos: "));
 
 //Entrada dos tipos de ativos
 const ativos = [ ];
 for (let i = 0; i < quantidadeAtivos; i++) {
-  const codigoAtivo = prompt();
+  const codigoAtivo = prompt("Digite o nome do ativo: ");
   ativos.push(codigoAtivo);
 }
 
