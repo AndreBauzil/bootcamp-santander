@@ -3,9 +3,9 @@
 //- "print": imprime um texto de saída (output), pulando linha.
 const prompt = require('prompt-sync')();
 
-const valorInicial = parseFloat(prompt());
-const taxaJuros = parseFloat(prompt());
-const periodo = parseInt(prompt());
+const valorInicial = parseFloat(prompt("Digite o valor inicial do investimento: "));
+const taxaJuros = parseFloat(prompt("Digite a taxa de juros mensal: "));
+const periodo = parseInt(prompt("Digite o periodo de investimento: "));
 
 let valorFinal = valorInicial;
 
